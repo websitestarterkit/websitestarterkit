@@ -22,13 +22,7 @@ param accessTier string = 'Hot'
 // https://learn.microsoft.com/en-us/azure/storage/blobs/storage-blob-static-website#setting-up-a-static-website
 // https://devblogs.microsoft.com/devops/comparing-azure-static-web-apps-vs-azure-webapps-vs-azure-blob-storage-static-sites/
 
-// resource storageAccount 'Microsoft.Storage/storageAccounts@2022-09-01' existing = {
-//   name: storageAccountName
-// }
 
-// resource staticWebsite 'Microsoft.Storage/storageAccounts/blobServices@2022-09-01' = {
-//   parent: storageAccount
-//   name: 'default'
 resource sa 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   name: storageAccountName
   location: location
@@ -41,20 +35,11 @@ resource sa 'Microsoft.Storage/storageAccounts@2023-01-01' = {
       accessTier: accessTier
       supportsHttpsTrafficOnly: true
   }
-  // staticWebsite: {
-  //   enabled: true
-  //   indexDocument: 'index.html'
-  //   errorDocument404Path: '404.html'
-  // }
 }
 
 resource saBlobService 'Microsoft.Storage/storageAccounts/blobServices@2023-04-01' = {
   parent: sa
   name: 'default'
-  // sku: {
-    // name: 'Standard_LRS'
-    // tier: 'Standard'
-  // }
   properties: {
     cors: {
       corsRules: []
@@ -77,31 +62,4 @@ resource saWebContainer 'Microsoft.Storage/storageAccounts/blobServices/containe
     denyEncryptionScopeOverride: false
     publicAccess: 'Blob'
   }
-  // dependsOn: [
-  //   storageAccounts_cleanweb34_name_resource
-  // ]
 }
-
-
-/*resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
-  name: storageAccountName
-  location: location
-  sku: {
-    name: storageAccountSku
-  }
-  kind: 'StorageV2'
-  properties: {
-    supportsHttpsTrafficOnly: true
-    accessTier: accessTier
-    isHnsEnabled: true // Enable Hierarchical Namespace
-    // enableHttpsTrafficOnly: true // Enable HTTPS traffic only
-    allowBlobPublicAccess: true // Allow public access to blobs
-
-    staticWebsite: {
-      enabled: true // Enable static website
-      indexDocument: 'index.html' // Specify the index document
-      error404Document: '404.html' // Specify the 404 error document
-    }
-  }
-}
-*/
