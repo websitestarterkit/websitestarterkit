@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!-- uppercase "UTF" for overly pedantic reasons (https://blog.codingoutloud.com/2009/04/08/is-utf-8-case-sensitive-in-xml-declaration/) -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="referrer" content="strict-origin"> <!-- favors privacy -->
+
+    <title>Baseline website from the Website Starter Kit Project at websitestarterkit.org</title>
+    <meta name="description"
+        content="Standards-compliant, accessible, SEO-friendly, and modern website template to help you get started on your website journey.">
+
+    <meta property="og:title" content="Baseline website from the Website Starter Kit Project at websitestarterkit.org">
+    <meta property="og:description"
+        content="Primer Websites are standards-compliant, accessible, SEO-friendly and use other modern best practices to serve as a fast and efficient starting point for your own website.">
+    <meta property="og:image" content="images/logo.svg">
+    <meta property="og:url" content="https://websitestarterkit.org/">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="theme-color" content="#3f2d2d">
+    <!-- Specifies the theme color for mobile browsers https://caniuse.com/?search=theme-color -->
+
+    <meta name="robots" content="index, follow"> <!-- favors SEO -->
+
+    <!-- AVOID THIS with rel="icon" - if there are others besides /favicon incldue the sizes attribute <link rel="icon" href="/favicons/favicon.ico" type="image/x-icon"> -->
+    <link rel="icon" href="/favicon.ico" />
+
+    <link rel="canonical" href="https://websitestarterkit.org/">
+    <!-- favors SEO to parent where it belongs in this case -->
+
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="bitcoin.js" defer></script>
+</head>
+
+<body>
+    <header>
+        <div class="header-app-logo">
+            <a href="https://websitestarterkit.org"><img src="images/logo.svg" alt="Home"></a>
+        </div>
+
+        <div class="header-app-title">
+            <h2>Welcome to the Website Starter Kit</h2>
+            <p>This website (or simple web application, if you prefer) demonstrates a number of useful HTML, CSS,
+                and JavaScript techniques.</p>
+            <p>To make it your own, work through the checklists.</p>
+        </div>
+
+        <div class="header-github-logo">
+            <a href="https://github.com/websitestarterkit/websitestarterkit-A-baseline">
+                <img src="images/github-mark-white.png" alt="GitHub Octocat">
+            </a>
+            <p>Code is on GitHub</p>
+        </div>
+    </header>
+
+    <main>
+        <section id="necessary-changes">
+            <h2>Necessary Changes</h2>
+
+            <h3>Highly visible content</h3>
+            <ul>
+                <li><input type="checkbox" id="visible1">
+                    <label for="visible1">Update all visible text in the header to match your website's purpose.</label>
+                </li>
+                <li><input type="checkbox" id="visible2">
+                    <label for="visible2">Update all visible text in the main body to match your website's purpose.</label>
+                </li>
+                <li><input type="checkbox" id="visible3">
+                    <label for="visible3">Update all visible text in the footer (such as copyright notice) 
+                        to match your website's purpose.</label>
+                </li>
+                <li><input type="checkbox" id="visible4">
+                    <label for="visible4">Update all visible text in the &lt;aside> element to match your website's purpose. 
+                        There is JavaScript code in separate file "bitcoin.js" that looks up the Bitcoin price; 
+                        this should be replaced to match your API needs or removed.</label>
+                </li>
+            </ul>
+
+            <h3>Easy to miss values within &lt;head> section of index.html</h3>
+            <ul>
+                <li><input type="checkbox" id="change1">
+                    <label for="change1">Update <code>&lt;title></code> to match your website</label>
+                </li>
+                <li><input type="checkbox" id="change2">
+                    <label for="change2">Update <code>meta name="description"</code> to match your website</label>
+                </li>
+                <li><input type="checkbox" id="change3">
+                    <label for="change3">Update <code>meta name="og:title"</code> to match your website</label>
+                </li>
+                <li><input type="checkbox" id="change4">
+                    <label for="change4">Update <code>meta name="og:description"</code> to match your website</label>
+                </li>
+                <li><input type="checkbox" id="change5">
+                    <label for="change5">Update <code>meta name="og:image"</code> to match your website</label>
+                </li>
+                <li><input type="checkbox" id="change6">
+                    <label for="change6">Update <code>meta name="og:url"</code> to match your website</label>
+                </li>
+            </ul>
+        </section>
+        <section id="optional-changes">
+            <h2>Optional Changes</h2>
+            <ul>
+                <li><input type="checkbox" id="opional1">
+                    <label for="opional1">Replace logo to match your brand</label>
+                </li>
+                <li><input type="checkbox" id="opional2">
+                    <label for="opional2">Replace /favicon.ico + /favicons/* to match your brand</label>
+                </li>
+                <li><input type="checkbox" id="opional3" checked>
+                    <label for="opional3">Update or delete <a
+                            href="/.well-known/security.txt">.well-known/security.txt</a></label>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Retrieve the checkbox values from local storage
+        const checkboxValues = JSON.parse(localStorage.getItem('checkboxValues')) || {};
+
+        // Set the checked state of the checkboxes based on the stored values
+        Object.keys(checkboxValues).forEach((checkboxId) => {
+            const checkbox = document.getElementById(checkboxId);
+            if (checkbox) {
+                checkbox.checked = checkboxValues[checkboxId];
+            }
+        });
+
+        // Save the checkbox values to local storage when a checkbox is clicked
+        document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+            checkbox.addEventListener('change', () => {
+                checkboxValues[checkbox.id] = checkbox.checked;
+                localStorage.setItem('checkboxValues', JSON.stringify(checkboxValues));
+            });
+        });
+    </script>
+
+    <aside>
+        <h2>What's the going rate for Bitcoin?</h2>
+        <form> <!-- better semantics with <form> for accessibility -->
+            <button type="button" id="BitcoinPriceCheck" class="bitcoinGetPriceButton">Check Bitcoin Price</button>
+            <textarea title="Bitcoin price results" id="BitcoinPriceCheckResults" name="BitcoinPriceCheckResults"
+                rows="10" cols="50" class="bitcoinPriceContainer"></textarea>
+        </form>
+        <p>This code provides an example demonstrating how to use JavaScript to interact with a third-party API.
+            Further, since this content is unrelated to the rest of the page, it appears within the
+            HTML <code>&lt;aside></code> element which was introduced in HTML5 to represent content that is
+            tangentially related to the content around it.
+        </p>
+    </aside>
+    <footer>
+        <p>&copy; 2024 Website Starter Kit Project</p>
+    </footer>
+</body>
+
+</html>

@@ -1,0 +1,9 @@
+# The following expresses: crawl whole site except for /.well-known which 
+# generally have purposes outside of SEO
+User-agent: *
+Disallow: /.well-known/
+
+
+# fully permissive for max SEO
+User-agent: *  # any user agent
+Allow: /       # root folder and everything under it

@@ -1,0 +1,172 @@
+
+:root {
+   /* define variables for text color and background color */
+   --text-color: #333;
+   --background-color: #f4f4f4;
+   --header-background-color: #0000FF;
+
+   --primary-color: #007bff;
+   /* Primary color for the site */
+   --secondary-color: #6c757d;
+   /* Secondary color for the site */
+   --success-color: #28a745;
+   /* Success color for the site */
+   --info-color: #17a2b8;
+   /* Info color for the site */
+   --warning-color: #ffc107;
+   /* Warning color for the site */
+   --danger-color: #dc3545;
+   /* Danger color for the site */
+   --light-color: #f8f9fa;
+   /* Light color for the site */
+   --dark-color: #343a40;
+   /* Dark color for the site */
+   --breakpoint-sm: 576px;
+   /* Small breakpoint for responsive design */
+   --breakpoint-md: 768px;
+   /* Medium breakpoint for responsive design */
+   --breakpoint-lg: 992px;
+   /* Large breakpoint for responsive design */
+   --breakpoint-xl: 1200px;
+   /* Extra-large breakpoint for responsive design */
+}
+
+/* Reset some default browser styles to ensure consistency across different browsers */
+body,
+h1,
+h2,
+p {
+   margin: 0;
+   padding: 0;
+}
+
+
+
+/* Define the main layout using CSS Grid */
+body {
+   display: grid;
+   grid-template-areas:
+      "header header"
+      "main aside"
+      "footer footer";
+   grid-template-rows: auto 1fr auto;
+   grid-template-columns: 2fr 1fr;
+   gap: 20px;
+   /* Space between grid items */
+   font-family: Arial, sans-serif;
+   /* Set the font for the entire page */
+   line-height: 1.6;
+   /* Set line height for better readability */
+   min-height: 100vh;
+   /* Ensure the body takes at least the full height of the viewport */
+}
+
+/* Style the header */
+header {
+   grid-area: header;
+   /* Place the header in the header grid area */
+
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+
+   background-color: var(--header-background-color);
+   color: white; /* White text color matches github logo and contrasts background */
+   padding: 2rem;
+   width: 100%;
+   box-sizing: border-box;
+}
+
+/* logo for this app displayed at top-left in header */
+.header-app-logo {
+   display: inline-block;
+}
+.header-app-logo img {
+   /* Use % to make image responsive */
+   width: 50%;
+   height: auto;
+   vertical-align: middle;
+   transform: translateY(15px);
+}
+
+/* GitHub logo in header */
+.header-github-logo {
+   display: inline-block;
+   /* margin-left: auto; */
+}
+.header-github-logo img {
+   max-width: 100px;
+   height: auto;
+   transform: translateX(19px);
+}
+.header-github-logo p h1 h2 h3 {
+   display: flex;
+   align-items: center;
+   vertical-align: middle;
+}
+
+/* Style the main content area */
+main {
+   display: grid;
+   /* Use CSS Grid for the main content to place sections side-by-side */
+   grid-template-columns: 1fr 1fr;
+   /* Two equal-width columns */
+   gap: 20px;
+   /* Space between columns */
+   padding: 1rem;
+   /* Padding inside the main content */
+   grid-area: main;
+   /* Place the main content in the main grid area */
+}
+
+/* Style individual sections within the main content */
+section {
+   margin-bottom: 1.5rem;
+   /* Space below each section */
+}
+
+/* Style the aside (sidebar) */
+aside {
+   background-color: #f4f4f4;
+   /* Light gray background color */
+   padding: 1rem;
+   /* Padding inside the aside */
+   grid-area: aside;
+   /* Place the aside in the aside grid area */
+}
+
+/* Style the footer */
+footer {
+   background-color: #4CAF50;
+   /* Green background color */
+   color: white;
+   /* White text color */
+   text-align: center;
+   /* Center the text horizontally */
+   padding: 1rem;
+   /* Padding inside the footer */
+   grid-area: footer;
+   /* Place the footer in the footer grid area */
+   width: 100%;
+   /* Make sure the footer spans the full width */
+}
+
+
+/* Responsive layout for screens narrower than 768px */
+@media (max-width: 768px) {
+   body {
+      grid-template-areas:
+         /* Adjust grid areas for a single-column layout */
+         "header"
+         "main"
+         "aside"
+         "footer";
+      grid-template-columns: 1fr;
+      /* Single column layout */
+   }
+
+   main {
+      grid-template-columns: 1fr;
+      /* Single column layout for sections within main */
+   }
+}

@@ -1,0 +1,15 @@
+# Our address for reporting security concerns
+Contact: security@example.com ### TODO: change this to be your own
+
+# Our PGP key - instructions?
+Encryption: https://www.example.com/pgp-key.txt
+
+# Our security policy - is there a bug bounty?
+Policy: https://www.example.com/security-policy
+
+# Our security acknowledgements page
+Acknowledgments: https://www.example.com/hall-of-fame
+
+# Hiring
+Hiring: https://www.example.com/jobs
+

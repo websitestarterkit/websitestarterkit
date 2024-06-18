@@ -1,0 +1,8 @@
+{
+   "routes": [
+      {
+         "route": "/*",
+         "rewrite": "/404.html"
+      }
+   ]
+}
