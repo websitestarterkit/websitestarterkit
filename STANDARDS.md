@@ -6,7 +6,7 @@
 - **Form Enhancements**: Leverage new input types like `email`, `date`, `tel`, and `range` for improved form handling.
 - **Video and Audio**: Embed video and audio content using `<video>` and `<audio>` tags without relying on third-party plugins.
 - **Accessible Rich Internet Applications (ARIA)**: Enhance accessibility by incorporating ARIA attributes for better screen reader support.
-- **Custom Elements**:** Create reusable, encapsulated HTML tags using Web Components and Custom Elements.
+- **Custom Elements**: Create reusable, encapsulated HTML tags using Web Components and Custom Elements.
 
 ## CSS3
 
