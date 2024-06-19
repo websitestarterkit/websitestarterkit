@@ -1,12 +1,5 @@
 #!/bin/bash
 
-az version
-
-echo "If upgrades are available, consider running:"
-echo "sudo az upgrade"
-echo "  or"
-echo "az upgrade"
-
 echo ""
 echo "------------------------------------------------------------"
 echo "Beginning deployment at $(date)."
@@ -20,6 +13,7 @@ echo ""
 # 4. Upload the contents of /src to the $web container
 # 5. Ensure that the storage account properties allow public access
 # 6. Ensure that the $web container allows public access
+
 
 
 # source params.sh from the same directory as this script
@@ -38,38 +32,34 @@ fi
 # Check if the resource group exists
 rg_exists=$(az group exists --name $resourceGroupName)
 echo "rg_exists=$rg_exists"
+# if [ "$rg_exists" == "true" ]; then
+#   echo "→ Resource group $resourceGroupName exists."
+# else
+#   echo "→ Resource group $resourceGroupName does NOT exist."
+# fi
 
 # Ensure logged in (for interactive use of this script in a shell).
 # You would not invoke "az login" in a script that runs unattended
 # such as from a GitHub Action (where there are other ways to 
 # authenticate).
-if ! az account show --query "user.name"; then
+if ! az account show; then
   az login
 fi
 
-echo "User '$(az account show --query 'user.name' --output tsv)' is logged in to the '$(az account show --query 'name' --output tsv)' subscription."
-az account show --query "{user: user.name, subscription: name}" --output tsv
-
 #   echo "✅ Resource group \"$resourceGroupName\" already exists."
 
-if [ "$rg_exists" == true ]; then
-  echo "✅ Resource group \"$resourceGroupName\" already exists."
+if [ "$rg_exists" != "true" ]; then
+  echo "Creating resource group: \"$resourceGroupName\""
+  az group create --name $resourceGroupName --location $location
 else
-  echo "❌ Resource group \"$resourceGroupName\" does not exist."
-  exit 0
+  echo "✅ Resource group \"$resourceGroupName\" already exists."
 fi
 
-# Get the deployment history for a specific resource group
-az deployment group list --resource-group $resourceGroupName
 
-# Get details of a specific deployment
-# az deployment group show --resource-group $resourceGroupName --name <deployment-name>
-
-
-echo "" ; echo "___ bailing out ___" ; echo "" ; exit 0
+# echo "" ; echo "___ bailing out ___" ; echo "" ; exit 0
 
 # Deploy resources using Bicep file
-echo "Applying Bicep model in resource group $resourceGroupName at $location..."
+echo "Applying Bicep model $DIR/main.bicep in resource group $resourceGroupName at $location..."
 az deployment group create --resource-group $resourceGroupName --template-file $DIR/main.bicep --parameters storageAccountName=$storageAccountName
 # az deployment group create --resource-group $resourceGroupName --template-file infra/main.bicep --parameters location=$location, storageAccountName=$storageAccountName
 
@@ -91,7 +81,6 @@ date
 saResourceId=$(az storage account show --name $storageAccountName --resource-group $resourceGroupName --query id --output tsv)
 echo "saResourceId = $saResourceId"
 echo "az resource show --ids $saResourceId --api-version 2021-04-01 --query properties | jq '.allowBlobPublicAccess'"
-echo "-- the above SHOULD HAVE returned 'true' --"
 
 echo "/* _______________________________"
 # Show status of storage account properties' allowBlobPublicAccess and allowPublicAccess
@@ -103,8 +92,10 @@ echo "/* _______________________________"
 # az resource update --ids $saResourceId --set properties.allowBlobPublicAccess=true
 
 # Show status of storage account properties' allowBlobPublicAccess and allowPublicAccess
-saResourceId=$(az storage account show --name $storageAccountName --resource-group $resourceGroupName --query id --output tsv)
 az resource show --ids $saResourceId --api-version 2021-04-01 --query properties | jq '.allowBlobPublicAccess'
+echo "-- the above SHOULD HAVE returned 'true' --"
+
+echo "/* _______________________________"
 
 
 echo "+++++++++++++++++++++ PRE  +++++++++++++++++++++"

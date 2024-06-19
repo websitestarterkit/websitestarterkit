@@ -1,3 +1,3 @@
 export location="eastus2"
-export resourceGroupName="webjunkdsfht434"
-export storageAccountName="$resourceGroupName"
+export resourceGroupName="kevin"
+export storageAccountName="kevinwebsecscan"
