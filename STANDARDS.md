@@ -20,7 +20,7 @@
 
 ## Web Accssibility (WCAG 2.1+)
 
-- **Accessibility**: Ensure all content is accessible by following the latest WCAG guidelines. WCAG 2.2 is the latest Web Content Accessibility Guidelines latest.
+- **Accessibility**: Ensure all content is accessible by following the latest WCAG guidelines. WCAG 2.2 is the latest Web Content Accessibility Guidelines version.
 - **Keyboard Navigation**: Make the website navigable using a keyboard alone.
 - **Contrast Ratio**: Maintain sufficient contrast for readability by users with visual impairments.
 - **Accessible Media**: Provide descriptive alt text for images. Provide captions, transcripts, and audio descriptions for multimedia content.
