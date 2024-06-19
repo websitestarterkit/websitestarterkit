@@ -1,0 +1,49 @@
+{
+   "recommendations": [
+      // 
+      // ----------------
+      // Azure Extensions
+      // ----------------
+      // 
+      // Manage Azure account and subscriptions
+      "ms-vscode.azure-account",
+      // Manage Azure Storage accounts, containers, blobs, and file shares
+      "ms-azuretools.vscode-azurestorage",
+      // Create, manage, and deploy Azure Static Web Apps
+      "ms-azuretools.vscode-azurestaticwebapps",
+      // Develop, deploy, and manage Azure Functions
+      "ms-azuretools.vscode-azurefunctions",
+      // Language support for Bicep (Azure resource deployment)
+      "ms-azuretools.vscode-bicep",
+      // Integrate Azure CLI into VS Code
+      // "ms-vscode.azurecli",
+      // Comprehensive Azure development tools
+      // "ms-azuretools.azure-dev",
+      // C# language support
+      // "ms-dotnettools.csharp",
+      // 
+      // -----------------
+      // GitHub Extensions
+      // -----------------
+      // 
+      // AI-powered coding assistant
+      // "github.copilot",
+      // Chat interface for GitHub Copilot
+      // "github.copilot-chat",      
+      // 
+      // --------------------------
+      // Web Development Extensions
+      // --------------------------
+      // 
+      // Live server for static and dynamic web pages
+      "ritwickdey.LiveServer",
+      // ESLint integration for JavaScript linting
+      // "dbaeumer.vscode-eslint",
+      // Markdown linting and style checking
+      // "davidanson.vscode-markdownlint",
+      // W3C validation for HTML, CSS, and SVG
+      // "celianriboulet.vscode-w3cvalidation",
+      // Another W3C validator for web documents
+      // "yoshinon.w3c-web-validator"
+   ]
+}
