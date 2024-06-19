@@ -1,5 +1,7 @@
 #!/bin/bash
 
+start_time=$(date +%s)
+
 echo ""
 echo "------------------------------------------------------------"
 echo "Beginning incremental deployment at $(date)."
@@ -43,4 +45,9 @@ url=$(az storage account show -n $storageAccountName -g $resourceGroupName --que
 echo "url = $url"
 open $url
 
-echo "Deployment completed at $(date)."
+end_time=$(date +%s)
+runtime_seconds=$((end_time - start_time))
+
+echo "Deployment at $(date) after $runtime_seconds seconds."
+
+# echo "Script runtime:  seconds"

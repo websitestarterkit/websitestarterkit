@@ -37,6 +37,8 @@
       // 
       // Live server for static and dynamic web pages
       "ritwickdey.LiveServer",
+      // Microsoft ESLint integration for JavaScript linting
+      "dbaeumer.vscode-eslint",
       // ESLint integration for JavaScript linting
       // "dbaeumer.vscode-eslint",
       // Markdown linting and style checking
