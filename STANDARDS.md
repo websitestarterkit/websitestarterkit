@@ -36,10 +36,10 @@
 
 ## Compliance Checks and Test Automation Tools
 
-- **HTML Validator**: Validate markup using the W3C HTML Validator.
-- **CSS Validator**: Ensure stylesheets adhere to standards with the W3C CSS Validator.
-- **Accessibility Checker**: Audit the website for accessibility compliance using tools like axe, Wave, and Lighthouse (integrated in Chrome DevTools) to audit performance, accessibility, best practices, and SEO.
-- **Performance Audits**: Regularly audit and optimize website performance using tools like Lighthouse, WebPageTest, and PageSpeed Insights.
+- **HTML Validator**: Validate markup using the [W3C HTML Validator](https://validator.w3.org/).
+- **CSS Validator**: Ensure stylesheets adhere to standards with the [W3C CSS Validator](https://jigsaw.w3.org/css-validator/).
+- **Accessibility Checker**: Audit the website for accessibility compliance using tools like [axe](https://www.deque.com/axe/), [Wave](https://wave.webaim.org/), and [Lighthouse](https://developers.google.com/web/tools/lighthouse) (integrated in Chrome DevTools).
+- **Performance Audits**: Regularly audit and optimize website performance using tools like [Lighthouse](https://developers.google.com/web/tools/lighthouse), [WebPageTest](https://www.webpagetest.org/), and [PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/).
 - **Cross-Browser Testing**: Test the website across multiple browsers and devices for compatibility and responsiveness.
 - **Automated Testing**: Implement automated testing frameworks like Jest or Cypress for comprehensive testing of functionality and regressions.
 
