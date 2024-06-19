@@ -1,4 +1,6 @@
-# Modern Web Standards Checklist
+# Modern Web Standards Cheat Sheet
+
+This cheat sheet covers key modern web standards and best practices for building accessible, performant, and standards-compliant websites and applications.
 
 ## HTML5
 
@@ -45,9 +47,13 @@
 
 ## Additional Considerations
 
-- **Performance**: Optimize images, minimize HTTP requests, and consider lazy loading to enhance page load speed. Split code into smaller chunks for faster initial load times using techniques like dynamic imports.
 - **Progressive Web App (PWA)**: Explore PWA features for offline capability, app-like experiences, and faster loading.
-- **Security**: Implement HTTPS for secure communication and follow best practices for data protection and input validation.
-- **Google's Baseline Standards** Align with [Google Baseline](https://developers.google.com/web/updates/2019/08/baseline) which provides a clear reference point for developers and site owners on whether web platform features are ready to be safely adopted across major browsers. Consider [caniuse.com](https://caniuse.com/) a supplementary resource.
+- **Security**: Implement HTTPS for secure communication and follow best practices for data protection and input validation (which should include server-side validation). Implement measures to protect against common vulnerabilities (e.g., OWASP Top 10).
+- **Performance**: Optimize images, minimize HTTP requests, and consider lazy loading to enhance page load speed. Split code into smaller chunks for faster initial load times using techniques like dynamic imports.
+- **Adopt Supported Standards**: Align with [Google Baseline](https://developers.google.com/web/updates/2019/08/baseline) which provides a clear reference point for developers and site owners on whether web platform features are ready to be safely adopted across major browsers. Consider [caniuse.com](https://caniuse.com/) and [MDN Web Docs](https://developer.mozilla.org/) supplementary resources for ascertaining whether evolving standards have been implemented in the browser versions you support.
+
+## Learning Resources
+
+- **Google Web Fundamentals**: https://developers.google.com/web/fundamentals
 
 🚀
