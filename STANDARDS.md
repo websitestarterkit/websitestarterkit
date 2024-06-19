@@ -38,7 +38,7 @@
 
 - **HTML Validator**: Validate markup using the W3C HTML Validator.
 - **CSS Validator**: Ensure stylesheets adhere to standards with the W3C CSS Validator.
-- **Accessibility Checker**: Audit the website for accessibility compliance using tools like axe, Wave, and `Lighthouse` (integrated in Chrome DevTools) to audit performance, accessibility, best practices, and SEO.
+- **Accessibility Checker**: Audit the website for accessibility compliance using tools like axe, Wave, and Lighthouse (integrated in Chrome DevTools) to audit performance, accessibility, best practices, and SEO.
 - **Performance Audits**: Regularly audit and optimize website performance using tools like Lighthouse, WebPageTest, and PageSpeed Insights.
 - **Cross-Browser Testing**: Test the website across multiple browsers and devices for compatibility and responsiveness.
 - **Automated Testing**: Implement automated testing frameworks like Jest or Cypress for comprehensive testing of functionality and regressions.
