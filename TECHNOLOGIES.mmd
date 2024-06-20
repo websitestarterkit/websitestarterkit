@@ -1,0 +1,63 @@
+graph TD
+    subgraph Docs["Project Docs - /"]
+        github_readme["README.md (project documentation)"]
+        github_license["LICENSE (project license)"]
+        contributing_md["CONTRIBUTING.md (for open source projects accepting contributions)"]
+    end
+
+    subgraph Web["Web Files - /src"]
+        html["src/*.html (HTML files)"]
+        css["src/*.css (CSS files)"]
+        js["src/*.js (JavaScript that runs in the web browser)"]
+        favicon["src/favicon.ico (default icon)"]
+        favicons["src/favicons/*.png (multiple icon/image formats and sizes)"]
+        robots_txt["src/robots.txt (directives for web crawlers)"]
+        security_txt["src/.well-known/security.txt (security policy information)"]
+    end
+
+    subgraph VSCode ["VS Code Files - /.vscode"]
+        launch_json[".vscode/launch.json (debug configuration)"]
+        settings_json[".vscode/settings.json (workspace settings)"]
+        tasks_json[".vscode/tasks.json (automation tasks)"]
+        extensions_json[".vscode/extensions.json (installed extensions)"]
+        click VSCode "https://doingazure.com"
+    end
+
+    subgraph Git["Git Files and Tools - /.git, /.gitignore"]
+        git_folder[".git/* (file change tracking)"]
+        gitignore[".gitignore (untracked files)"]
+        click VSCode "javascript:window.open('https://github.com', '_blank');"
+    end
+
+    subgraph GitHub["GitHub Config and Tools - /.github"]
+        workflows_yml[".github/workflows/*.yml (CI/CD workflows)"]
+    end
+
+    subgraph SWA["SWA - /src, /api"]
+        swa_config_json["src/staticwebapp.config.json (SWA config)"]
+        swa_cli_config_json["src/swa-cli.config.json (SWA CLI config)"]
+        routes_json["src/routes.json (route configuration)"]
+        api_code["api/* (code that runs in Azure Functions)"]
+
+        subgraph SWA_VSCodeExtensions["SWA VS Code Extensions"]
+            azure_extensions["Azure Function VS Code extension"]
+            swa_extensions["Azure SWA VS Code extension"]
+        end
+    end
+
+    subgraph Build["Build - npm tools and/or npx libraries"]
+        package_json["package.json (project metadata and dependencies)"]
+    end
+
+    subgraph Test
+        test_technology["{various test technologies}"]
+    end
+
+    Test --> Build
+    Build --> SWA
+    SWA --> GitHub
+    GitHub --> Git
+    Git --> VSCode
+    VSCode --> Web
+    Web --> Docs
+    
